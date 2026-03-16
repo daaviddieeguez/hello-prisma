@@ -4,11 +4,11 @@ import { prisma } from '@/libs/prisma';
 export async function GET() {
     try {
         const users = await prisma.user.findMany();
-        return NextResponse.json(users);
+        return NextResponse.json(users, {status: 200});
     } catch (error) {
         return NextResponse.json(
             { error: "Error al obtener los usuarios" },
-            { status: 200 }
+            { status: 500 }
         );
     }
 }
