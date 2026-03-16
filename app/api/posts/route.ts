@@ -22,7 +22,8 @@ export async function POST(request: Request) {
         const newPost = await prisma.post.create({
             data: {
                 title: body.title,
-                authorId: body.authorId,
+                published: body.published,
+                authorId: body.authorId
             }
         });
 
